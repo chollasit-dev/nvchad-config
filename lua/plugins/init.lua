@@ -35,6 +35,11 @@ return {
   },
 
   {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+  },
+
+  {
     "sourcegraph/sg.nvim",
     config = function()
       return require("sg").setup {}
