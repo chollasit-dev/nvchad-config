@@ -17,6 +17,12 @@ return {
     opts = {
       ensure_installed = {
         "css",
+        "editorconfig",
+        "git_config",
+        "git_rebase",
+        "gitattributes",
+        "gitcommit",
+        "gitignore",
         "html",
         "javascript",
         "lua",
