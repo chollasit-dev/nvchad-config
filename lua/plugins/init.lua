@@ -26,6 +26,7 @@ return {
         "html",
         "javascript",
         "lua",
+        "tsx",
         "typescript",
         "vim",
         "vimdoc",
@@ -37,6 +38,20 @@ return {
     "mfussenegger/nvim-lint",
     config = function()
       require "configs.lint"
+    end,
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "html",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+    },
+    config = function()
+      require("nvim-ts-autotag").setup()
     end,
   },
 
