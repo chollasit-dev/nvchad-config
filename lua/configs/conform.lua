@@ -1,14 +1,18 @@
 local options = {
   formatters_by_ft = {
     ["markdown.mdx"] = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+    bash = { "shfmt" },
     css = { "prettierd" },
+    gitconfig = { "shfmt" },
     html = { "prettierd" },
     javascript = { "prettierd" },
     javascriptreact = { "prettierd" },
     lua = { "stylua" },
     markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+    sh = { "shfmt" },
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
+    zsh = { "shfmt" },
   },
 
   format_on_save = {
