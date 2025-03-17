@@ -57,6 +57,19 @@ return {
   },
 
   {
+    "NeogitOrg/neogit",
+    config = function()
+      require "configs.neogit"
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    lazy = false,
+  },
+
+  {
     "MeanderingProgrammer/render-markdown.nvim",
     config = function()
       require("render-markdown").setup {
