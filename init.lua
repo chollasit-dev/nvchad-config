@@ -25,14 +25,6 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
--- load cody ai
-require("sg").setup {}
-
--- load render-markdown
-require("render-markdown").setup {
-  completions = { lsp = { enabled = true } },
-}
-
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
