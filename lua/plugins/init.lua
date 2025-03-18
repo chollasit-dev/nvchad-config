@@ -27,6 +27,9 @@ return {
         "html",
         "javascript",
         "lua",
+        "markdown",
+        "markdown_inline",
+        "regex",
         "tsx",
         "typescript",
         "vim",
@@ -51,9 +54,7 @@ return {
       "typescript",
       "typescriptreact",
     },
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
+    opts = {},
   },
 
   {
@@ -81,10 +82,28 @@ return {
   },
 
   {
-    "sourcegraph/sg.nvim",
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
+    opts = {},
+  },
+
+  {
+    "folke/noice.nvim",
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    event = "VeryLazy",
     config = function()
-      return require("sg").setup {}
+      require "configs.noice"
     end,
+  },
+
+  {
+    "sourcegraph/sg.nvim",
+    opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
