@@ -26,6 +26,10 @@ map("n", "<leader>gg", ":Neogit<CR>", { desc = "Open neogit" })
 -- gitsign
 map("n", "<leader>gB", ":Gitsigns blame<CR>", { desc = "Open git blame" })
 
+-- fterm
+vim.keymap.set("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true })
+vim.keymap.set("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true })
+
 -- todo comments
 local todo = require "todo-comments"
 map("n", "<leader>tt", ":TodoTelescope<CR>", { desc = "Todo Telescope" })

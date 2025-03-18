@@ -89,6 +89,20 @@ return {
   },
 
   {
+    "numToStr/FTerm.nvim",
+    opts = {
+      dimensions = {
+        height = 0.9,
+        width = 0.9,
+      },
+      ---Map of environment variables extending the current environment.
+      ---See `:h jobstart-options`
+      ---@type table<string,string>|nil
+      env = nil,
+    },
+  },
+
+  {
     "folke/noice.nvim",
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -102,7 +116,6 @@ return {
   },
 
   { "nvzone/volt", lazy = true },
-
   {
     "nvzone/minty",
     cmd = { "Shades", "Huefy" },
