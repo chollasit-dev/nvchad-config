@@ -101,6 +101,13 @@ return {
     end,
   },
 
+  { "nvzone/volt", lazy = true },
+
+  {
+    "nvzone/minty",
+    cmd = { "Shades", "Huefy" },
+  },
+
   {
     "sourcegraph/sg.nvim",
     opts = {},
