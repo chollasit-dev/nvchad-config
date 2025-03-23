@@ -10,6 +10,12 @@ M.base46 = {
   transparency = true,
 }
 
+M.mason = {
+  pkgs = {
+    "js-debug-adapter",
+  },
+}
+
 M.ui = {
   cmp = {
     format_colors = {

@@ -46,6 +46,25 @@ return {
   },
 
   {
+    "mfussenegger/nvim-dap",
+    config = require "configs.dap.config",
+    dependencies = {
+      {
+        "rcarriga/nvim-dap-ui",
+        config = require "configs.dap-ui.config",
+        keys = require "configs.dap-ui.keys",
+      },
+      "nvim-neotest/nvim-nio",
+      {
+        -- virtual text for debugger display kinda like ai suggestion
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {},
+      },
+    },
+    keys = require "configs.dap.keys",
+  },
+
+  {
     "windwp/nvim-ts-autotag",
     ft = {
       "html",
