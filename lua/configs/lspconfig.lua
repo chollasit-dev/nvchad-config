@@ -11,6 +11,8 @@ local servers = {
   "dockerls",
   "html",
   "jsonls",
+  "pyright",
+  "ruff",
   "tailwindcss",
   "ts_ls",
   "yamlls",

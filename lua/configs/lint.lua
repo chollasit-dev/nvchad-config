@@ -7,6 +7,7 @@ require("lint").linters_by_ft = {
   javascriptreact = { "eslint_d" },
   markdown = { "markdownlint-cli2" },
   sh = { "shellcheck" },
+  python = { "ruff" },
   typescript = { "eslint_d" },
   typescriptreact = { "eslint_d" },
   zsh = { "shellcheck" },

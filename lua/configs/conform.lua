@@ -11,6 +11,7 @@ local options = {
     json = { "prettierd" },
     lua = { "stylua" },
     markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+    py = { "ruff" },
     sh = { "shfmt" },
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
