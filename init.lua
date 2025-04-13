@@ -25,6 +25,9 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
+-- load debugpy to use with uv
+require("dap-python").setup "uv"
+
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
