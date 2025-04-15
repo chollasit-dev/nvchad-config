@@ -13,6 +13,7 @@ local opts = {
     markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
     py = { "ruff" },
     sh = { "shfmt" },
+    sql = { "sqruff" },
     typescript = { "prettierd" },
     typescriptreact = { "prettierd" },
     yaml = { "prettierd" },

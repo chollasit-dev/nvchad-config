@@ -15,6 +15,8 @@ M.mason = {
     "debugpy",
     "delve",
     "js-debug-adapter",
+    -- `.sqruff` must be located where Sqruff being run
+    "sqruff",
   },
 }
 
