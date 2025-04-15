@@ -30,18 +30,12 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
+
+-- load cmd
 require "nvchad.autocmds"
+require "cmds"
 
--- show nvchad dashboard when no buffer
-vim.api.nvim_create_autocmd("BufDelete", {
-  callback = function()
-    local bufs = vim.t.bufs
-    if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then
-      vim.cmd "Nvdash"
-    end
-  end,
-})
-
+-- load keymaps
 vim.schedule(function()
   require "mappings"
 end)
