@@ -1,7 +1,18 @@
 require "nvchad.mappings"
 
--- set
 local map = vim.keymap.set
+local nomap = vim.keymap.del
+
+nomap("n", "<leader>cm")
+nomap("n", "<leader>b")
+
+-- movement in command mode
+map("c", "<A-b>", "<C-Left>", { desc = "move left word" })
+map("c", "<A-f>", "<C-Right>", { desc = "move right word" })
+map("c", "<C-a>", "<Home>", { desc = "move beginning of line" })
+map("c", "<C-b>", "<Left>", { desc = "move left" })
+map("c", "<C-d>", "<Del>", { desc = "delete letter" })
+map("c", "<C-f>", "<Right>", { desc = "move right" })
 
 -- quick command
 map("n", "<leader>`", "<cmd>bNext<CR>", { desc = "go to next buffer" })
@@ -10,8 +21,17 @@ map("n", "<leader>n", "<cmd>Telescope notify<CR>", { desc = "telescope notify hi
 -- quit
 map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quit all" })
 
+-- tabufline
+map("n", "<leader>bd", function()
+  require("nvchad.tabufline").close_buffer()
+end, { desc = "buffer close" })
+
 -- tab
 map("n", "<leader><Tab>d", "<cmd>tabclose<CR>", { desc = "close current tab" })
+
+-- file
+map("n", "<leader>fe", "<cmd>NvimTreeToggle<CR>", { desc = "nvim tree toggle" })
+map("n", "<leader>fn", "<cmd>enew<CR>", { desc = "buffer new" })
 
 -- find
 map("n", "<leader>:", "<cmd>Telescope command_history<CR>", { desc = "telescope command history" })
@@ -25,7 +45,14 @@ map("n", "<leader>sw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live 
 
 -- ui
 map("n", "<leader>un", "<cmd>Noice dismiss<CR>", { desc = "noice dismiss" })
-map("n", "<leader>fe", "<cmd>NvimTreeToggle<CR>", { desc = "neovim tree toggle" })
+
+-- lazy
+map("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "lazy" })
+
+-- mason
+map("n", "<leader>cmi", "<cmd>MasonInstallAll<CR>", { desc = "mason install all" })
+map("n", "<leader>cmo", "<cmd>Mason<CR>", { desc = "mason" })
+map("n", "<leader>cmu", "<cmd>MasonUpdate<CR>", { desc = "mason update" })
 
 -- git
 map("n", "<leader>gB", "<cmd>Gitsigns blame<CR>", { desc = "gitsigns blame" })
@@ -60,6 +87,6 @@ end, { desc = "previous todo comment" })
 -- end, { desc = "Next error/warning todo comment" })
 
 -- go.nvim
+map("n", "<leader>pat", "<cmd>GoAddTag<CR>", { desc = "add Go tag" })
 map("n", "<leader>pfs", "<cmd>GoFillStruct<CR>", { desc = "auto fill Go struct" })
 map("n", "<leader>pie", "<cmd>GoIfErr<CR>", { desc = "add Go if err" })
-map("n", "<leader>pat", "<cmd>GoAddTag<CR>", { desc = "add Go tag" })
