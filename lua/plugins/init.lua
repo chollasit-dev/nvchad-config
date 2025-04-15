@@ -1,18 +1,5 @@
 return {
   {
-    "stevearc/conform.nvim",
-    event = "BufWritePre", -- format on save
-    opts = require "configs.conform",
-  },
-
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
@@ -45,14 +32,26 @@ return {
     },
   },
 
+  -- mason related
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "configs.lspconfig"
+    end,
+  },
   {
     "mfussenegger/nvim-lint",
     config = function()
       require "configs.lint"
     end,
-    lazy = false,
+  },
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
+    opts = require "configs.conform",
   },
 
+  -- debugger
   {
     "mfussenegger/nvim-dap",
     config = require "configs.dap.config",
@@ -72,6 +71,44 @@ return {
     keys = require "configs.dap.keys",
   },
 
+  -- go
+  {
+    "leoluz/nvim-dap-go",
+    dependencies = "mfussenegger/nvim-dap",
+    ft = { "go" },
+    opts = {},
+  },
+  {
+    "ray-x/go.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+      -- if needed floating test term
+      "ray-x/guihua.lua",
+    },
+    build = function()
+      -- if needed to install/update all binaries
+      require("go.install").update_all_sync()
+    end,
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+  },
+
+  -- python
+  {
+    "mfussenegger/nvim-dap-python",
+    config = function()
+      -- using uv
+      require("dap-python").setup "uv"
+    end,
+    dependencies = "mfussenegger/nvim-dap",
+    event = { "bufEnter *.py" },
+  },
+
+  -- markup qol
   {
     "windwp/nvim-ts-autotag",
     ft = {
@@ -84,6 +121,7 @@ return {
     opts = {},
   },
 
+  -- git
   {
     "NeogitOrg/neogit",
     config = function()
@@ -98,23 +136,13 @@ return {
   },
 
   {
-    "MeanderingProgrammer/render-markdown.nvim",
-    config = function()
-      require("render-markdown").setup {
-        completions = { lsp = { enabled = true } },
-      }
-    end,
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-    lazy = false,
-  },
-
-  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    lazy = false,
     opts = {},
   },
 
+  -- neovim qol
+  -- floating terminal
   {
     "numToStr/FTerm.nvim",
     opts = {
@@ -122,68 +150,49 @@ return {
         height = 0.9,
         width = 0.9,
       },
-      ---Map of environment variables extending the current environment.
+      ---Map of environment variables extending the current environment
       ---See `:h jobstart-options`
       ---@type table<string,string>|nil
       env = nil,
     },
   },
-
+  -- render markdown
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    config = function()
+      require("render-markdown").setup {
+        completions = { lsp = { enabled = true } },
+      }
+    end,
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    event = { "bufEnter" },
+  },
+  -- notify popup
   {
     "folke/noice.nvim",
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-    event = "VeryLazy",
     config = function()
       require "configs.noice"
     end,
+    event = "VeryLazy",
   },
-
-  { "nvzone/volt", lazy = true },
-  {
-    "nvzone/minty",
-    cmd = { "Shades", "Huefy" },
-  },
-
-  {
-    "leoluz/nvim-dap-go",
-    dependencies = "mfussenegger/nvim-dap",
-    ft = "go",
-    opts = {},
-  },
-
-  {
-    "ray-x/go.nvim",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "nvim-treesitter/nvim-treesitter",
-      -- if needed floating test term
-      "ray-x/guihua.lua",
-    },
-    config = function()
-      require("go").setup()
-    end,
-    event = { "CmdlineEnter" },
-    ft = { "go", "gomod" },
-    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
-  },
-
-  {
-    "mfussenegger/nvim-dap-python",
-    dependencies = "mfussenegger/nvim-dap",
-    ft = "py",
-  },
-
+  -- ai
   {
     "sourcegraph/sg.nvim",
-    opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
     lazy = false,
+    opts = {},
+  },
+  -- color picker
+  { "nvzone/volt", lazy = true },
+  {
+    "nvzone/minty",
+    cmd = { "Shades", "Huefy" },
   },
 }

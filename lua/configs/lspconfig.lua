@@ -1,4 +1,4 @@
--- load defaults i.e lua_lsp
+-- defaults: lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
@@ -18,7 +18,7 @@ local servers = {
   "yamlls",
 }
 
--- lsps with default config
+-- lsps with defaults
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach,
@@ -27,6 +27,9 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- language specific
+
+-- go
 lspconfig.gopls.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,

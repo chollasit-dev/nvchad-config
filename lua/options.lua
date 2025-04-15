@@ -1,7 +1,8 @@
+-- default
 require "nvchad.options"
 
--- add yours here!
-
+-- custom
 local o = vim.o
-o.cursorlineopt = "both" -- to enable cursorline!
+
+o.cursorlineopt = "both"
 o.relativenumber = true

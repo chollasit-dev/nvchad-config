@@ -4,41 +4,41 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 -- quick command
-map("n", "<leader>`", ":bNext<CR>", { desc = "Go to next buffer" })
-map("n", "<leader>n", ":Telescope notify<CR>", { desc = "Telescope notify history" })
+map("n", "<leader>`", "<cmd>bNext<CR>", { desc = "go to next buffer" })
+map("n", "<leader>n", "<cmd>Telescope notify<CR>", { desc = "telescope notify history" })
 
 -- quit
-map("n", "<leader>qq", ":qa!<CR>", { desc = "Quit Neovim all force" })
+map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quit all" })
 
 -- tab
-map("n", "<leader>dd", ":tabclose<CR>", { desc = "Close current tab" })
+map("n", "<leader><Tab>d", "<cmd>tabclose<CR>", { desc = "close current tab" })
 
 -- find
-map("n", "<leader>:", ":Telescope command_history<CR>", { desc = "Telescope command history" })
-map("n", "<leader>fc", ":Telescope git_commits<CR>", { desc = "Telescope find commit" })
+map("n", "<leader>:", "<cmd>Telescope command_history<CR>", { desc = "telescope command history" })
+map("n", "<leader>fc", "<cmd>Telescope git_commits<CR>", { desc = "telescope find commit" })
 
 -- search
-map("n", "<leader>sC", ":Telescope commands<CR>", { desc = "Telescope search commands" })
-map("n", "<leader>sd", ":Telescope diagnostics<CR>", { desc = "Telescope search diagnostics" })
-map("n", "<leader>st", ":TodoTelescope<CR>", { desc = "Todo Telescope" })
-map("n", "<leader>sw", ":Telescope live_grep<CR>", { desc = "Telescope live grep" })
+map("n", "<leader>sC", "<cmd>Telescope commands<CR>", { desc = "telescope search commands" })
+map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "telescope search diagnostics" })
+map("n", "<leader>st", "<cmd>TodoTelescope<CR>", { desc = "todo Telescope" })
+map("n", "<leader>sw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
 
 -- ui
-map("n", "<leader>un", ":Noice dismiss<CR>", { desc = "Noice dismiss" })
-map("n", "<leader>fe", ":NvimTreeToggle<CR>", { desc = "Neovim tree toggle" })
+map("n", "<leader>un", "<cmd>Noice dismiss<CR>", { desc = "noice dismiss" })
+map("n", "<leader>fe", "<cmd>NvimTreeToggle<CR>", { desc = "neovim tree toggle" })
 
 -- git
-map("n", "<leader>gB", ":Gitsigns blame<CR>", { desc = "Gitsigns blame" })
-map("n", "<leader>gP", ":Neogit push<CR>", { desc = "Neogit push" })
-map("n", "<leader>gS", ":Neogit stash<CR>", { desc = "Neogit stash" })
-map("n", "<leader>gb", ":Telescope git_branches<CR>", { desc = "View branches" })
-map("n", "<leader>gc", ":Neogit commit<CR>", { desc = "Neogit commit" })
-map("n", "<leader>gd", ":Neogit diff<CR>", { desc = "Neogit diff" })
-map("n", "<leader>gf", ":Neogit fetch<CR>", { desc = "Neogit fetch" })
-map("n", "<leader>gg", ":Neogit<CR>", { desc = "Open neogit tab" })
-map("n", "<leader>gl", ":Neogit log<CR>", { desc = "Neogit log" })
-map("n", "<leader>gp", ":Neogit pull<CR>", { desc = "Neogit pull" })
-map("n", "<leader>gs", ":Telescope git_status<CR>", { desc = "Telescope git status" })
+map("n", "<leader>gB", "<cmd>Gitsigns blame<CR>", { desc = "gitsigns blame" })
+map("n", "<leader>gP", "<cmd>Neogit push<CR>", { desc = "neogit push" })
+map("n", "<leader>gS", "<cmd>Neogit stash<CR>", { desc = "neogit stash" })
+map("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "view branches" })
+map("n", "<leader>gc", "<cmd>Neogit commit<CR>", { desc = "neogit commit" })
+map("n", "<leader>gd", "<cmd>Neogit diff<CR>", { desc = "neogit diff" })
+map("n", "<leader>gf", "<cmd>Neogit fetch<CR>", { desc = "neogit fetch" })
+map("n", "<leader>gg", "<cmd>Neogit<CR>", { desc = "open neogit tab" })
+map("n", "<leader>gl", "<cmd>Neogit log<CR>", { desc = "neogit log" })
+map("n", "<leader>gp", "<cmd>Neogit pull<CR>", { desc = "neogit pull" })
+map("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 
 -- fterm
 vim.keymap.set({ "n", "t" }, "<A-i>", function()
@@ -49,18 +49,17 @@ end)
 local todo = require "todo-comments"
 map("n", "]t", function()
   todo.jump_next()
-end, { desc = "Next todo comment" })
+end, { desc = "next todo comment" })
 map("n", "[t", function()
   todo.jump_prev()
-end, { desc = "Previous todo comment" })
+end, { desc = "previous todo comment" })
 
 -- can also specify a list of valid jump keywords
-
 -- vim.keymap.set("n", "]t", function()
 --   require("todo-comments").jump_next { keywords = { "ERROR", "WARNING" } }
 -- end, { desc = "Next error/warning todo comment" })
 
 -- go.nvim
-map("n", "<leader>pfs", ":GoFillStruct<CR>", { desc = "Auto fill Go struct" })
-map("n", "<leader>pie", ":GoIfErr<CR>", { desc = "Add Go if err" })
-map("n", "<leader>pat", ":GoAddTag<CR>", { desc = "Add Go tag" })
+map("n", "<leader>pfs", "<cmd>GoFillStruct<CR>", { desc = "auto fill Go struct" })
+map("n", "<leader>pie", "<cmd>GoIfErr<CR>", { desc = "add Go if err" })
+map("n", "<leader>pat", "<cmd>GoAddTag<CR>", { desc = "add Go tag" })
