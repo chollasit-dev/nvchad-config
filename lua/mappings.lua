@@ -20,6 +20,11 @@ map("n", "<leader>n", "<cmd>Telescope notify<CR>", { desc = "telescope notify hi
 
 -- quit
 map("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quit all" })
+map("n", "<leader>Q", "<cmd>qa!<CR>", { desc = "quit all force" })
+
+-- editor
+map("n", "<C-u>", "<C-u>zz", { desc = "move half page up then centered" })
+map("n", "<C-d>", "<C-d>zz", { desc = "move half page down then centered" })
 
 -- tabufline
 map("n", "<leader>bd", function()
