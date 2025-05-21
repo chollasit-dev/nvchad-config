@@ -12,6 +12,7 @@ local servers = {
   "dockerls",
   "html",
   "jsonls",
+  "nginx_language_server",
   "nil_ls",
   "pyright",
   "ruff",

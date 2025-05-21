@@ -11,6 +11,7 @@ local opts = {
     json = { "prettierd" },
     lua = { "stylua" },
     markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+    nginx = { "nginxfmt" },
     nix = { "alejandra" },
     py = { "ruff" },
     sh = { "shfmt" },
