@@ -1,6 +1,7 @@
 -- defaults: lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
+-- TODO: migrate remaining to newer version of configuration.
 local lspconfig = require "lspconfig"
 local nvlsp = require "nvchad.configs.lspconfig"
 
@@ -11,6 +12,7 @@ local servers = {
   "dockerls",
   "html",
   "jsonls",
+  "nil_ls",
   "pyright",
   "ruff",
   "sqlls",
@@ -45,3 +47,21 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+-- external lsp
+
+-- nix
+-- Neovim v0.11+
+vim.lsp.config["nixd"] = {
+  cmd = { "/home/user/.nix-profile/bin/nixd" },
+  filetypes = { "nix" },
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    nixpkgs = {
+      expr = "import <nixpkgs> {}",
+    },
+  },
+}
+vim.lsp.enable "nixd"

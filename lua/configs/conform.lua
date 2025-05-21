@@ -11,6 +11,7 @@ local opts = {
     json = { "prettierd" },
     lua = { "stylua" },
     markdown = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+    nix = { "alejandra" },
     py = { "ruff" },
     sh = { "shfmt" },
     sql = { "sqruff" },
@@ -28,6 +29,9 @@ local opts = {
     lsp_format = "fallback",
     timeout_ms = 500,
   },
+
+  -- To enable formatting code inside markdown code block based on languages not supported by Prettier
+  -- https://github.com/stevearc/conform.nvim/blob/master/doc/formatter_options.md#injected
 }
 
 return opts

@@ -12,6 +12,7 @@ M.base46 = {
 
 M.mason = {
   pkgs = {
+    "alejandra",
     "debugpy",
     "delve",
     "js-debug-adapter",
